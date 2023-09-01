@@ -15,7 +15,7 @@ var result = "";
 var body = document.querySelector(".game_body");
 var turnaudio = new Audio('ting.mp3');
 var gameoveraudio = new Audio('gameover.mp3');
-
+resultshow.innerHTML = `<b>Turn of ${turn}</b>`;
 function checkwin(){
   const conditon = [
     [0,1,2,],
@@ -72,7 +72,8 @@ function changeturn(){
   }
   else{
     turnaudio.play();
-    turn==='X'?turn='O':turn='X';  
+    turn==='X'?turn='O':turn='X'; 
+    resultshow.innerHTML = `<b>Turn of ${turn}</b>`; 
   }
 }
 
@@ -80,7 +81,7 @@ playagain.addEventListener("click",function plays(e){
   filler.forEach((element) => {
     element.innerText = "";
   })
-  resultshow.innerHTML = "";
+  resultshow.innerHTML = `<b>Turn of ${turn}</b>`;
   for(let i=0;i<9;i++){
     main[i].style.background = "white";
   }
